@@ -14,4 +14,5 @@ public class Card {
 	public String toString() {
 		return this.rank;
 	}
+	
 }
