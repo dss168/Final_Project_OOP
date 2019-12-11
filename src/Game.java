@@ -7,12 +7,13 @@ public class Game {
 		//Deck is initialized and shuffled through call to Deck class, then stored locally in Game class as finalDeck
 		ArrayList<Card> finalDeck = new ArrayList<Card>();
 		finalDeck = Deck.initializeDeck();
-
+		
 		//Initialize players
 		Player Human = new Player();
 		Player Computer = new Player();
 		
 		//Deal player hands
+		//Code removes dealt cards from deck
 		for(int i=0; i<7; i++) {
 			Human.hand.add(finalDeck.get(0));
 			finalDeck.remove(0);
