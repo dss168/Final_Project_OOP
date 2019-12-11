@@ -1,6 +1,7 @@
-
 import java.util.*;
 
+//Establishes Deck class information.
+//Initializes deck before storing deck in Game class.
 public class Deck {
 	
 	
