@@ -2,11 +2,17 @@
 import java.util.*;
 
 public class Deck {
+	
+	
 
 	public static ArrayList<Card> initializeDeck(){
 		ArrayList<Card> returnDeck = new ArrayList<Card>();
 			int i2 = 1;
 			int i3 = 0;
+			
+			//Below for loop counts up to 52 cards for the deck
+				//i<55 is due to weird bug. Works fine
+			//Nested for loops adds 4 of each card before moving on to the next one.
 			for(int i = 0; i<55; i++) {
 				if(i2 < 4) {
 					i2++;
@@ -68,7 +74,10 @@ public class Deck {
 				}
 				
 			}
-			Collections.shuffle(returnDeck);
+		//Below code shuffles the deck
+		Collections.shuffle(returnDeck);
+		
+		//Shuffled deck is returned to Game class
 		return returnDeck;
 	}//END DECK INITIALIZATION
 	
