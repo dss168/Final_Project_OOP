@@ -66,9 +66,13 @@ public class Game {
 					
 					//### MAIN GAME CODE GOES BELOW ###
 					
+					//If cardloop = 0, cardloop is in progress
+					//If cardloop = 1, cardloop has ended
+					//The for statement will reset cardloop to 0 at the start of each player's turn.
+					
 					for(int cardloop = 0; cardloop < 1; cardloop = 0) {
 						//Communicate to player what their possible actions are.
-						System.out.println("What would you like to ask for? Please capitalize and enter the card names in plural");
+						System.out.println("What would you like to ask for? Please capitalize and enter the card names in plural.");
 						System.out.println("Your hand: " + Human.hand);
 					
 						//Collect input from player
@@ -104,21 +108,39 @@ public class Game {
 									}
 								}
 							}
+							
+						//Below if statement contains second half of card loop
+						//Activates if player asks for a valid card type.
+						
+						} else if(!playerinput.equals("")) {
+							
+							//Adjusts the input string to compensate for entry in plurals.
+							String playercardcheck = "";
+							if(playerinput.equals("Sixes")) {
+								playercardcheck = playerinput.substring(0, playerinput.length()-2);
+							} else if(!playerinput.equals("Sixes")) {
+								playercardcheck = playerinput.substring(0, playerinput.length()-1);
+							}
+							
+							//Compares the adjusted player input to the hand of the player to check if they own those cards
+							//Functions by converting the player input into a Card object and then seeing if the player's hand contains an equivalent Card object.
+							Card playercardrequest = new Card(playercardcheck);
+							if(!Human.hand.contains(playercardrequest)) {
+								
+								System.out.println("I'm sorry, you don't have those cards. Please try again.");
+							
+							} else if(Human.hand.contains(playercardrequest)) {
+								
+								//Test message
+								System.out.println("It works.");
+							}
+							
+							// ### NEEDS TO BE FIXED. COMPARISON DOESN'T WORK AT THE MOMENT ###
+							
 						}
-						
-						//Card playercardrequest = new Card(playerinput);
-						//if(!Human.hand.contains(Card.equals(playercardrequest)) {
-						//	System.out.println("I'm sorry, you don't have those cards. Please try again.");
-						//}
-						//Check if human player has requested card.
-						
-						// ### NEEDS TO BE FIXED. COMPARISON DOESN'T WORK AT THE MOMENT ###
-						
+							
 					}
 						
-					
-					
-					
 					//### MAIN GAME CODE GOES ABOVE
 					
 					
@@ -135,6 +157,8 @@ public class Game {
 					}
 					
 				} while(gamestatus == 0);
+				
+				//Code for determining winner goes here.
 				
 				//End game and terminate program
 				introloop++;
@@ -153,7 +177,7 @@ public class Game {
 			}
 		}
 		
-		playerscan.close();
+	playerscan.close();
 	}
 
 }
