@@ -451,6 +451,7 @@ public class Game {
 			}
 		}
 	
+		
 		//Close scanner
 		playerscan.close();
 	}
