@@ -14,4 +14,23 @@ public class Card {
 	public String toString() {
 		return this.rank;
 	}
+	
+	
+	//DOCUMENTATION GOES HERE FOR OVERRIDE
+	@Override
+	public boolean equals(Object obj) {
+		if(this.getClass() == obj.getClass()) {
+			Card card = (Card) obj;
+			
+			if(this.rank.equals(card.rank)) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+		
+		
+	}
 }

@@ -5,5 +5,6 @@ import java.util.*;
 
 public class Player {
 	ArrayList<Card> hand = new ArrayList<Card>();
+	int points = 0;
 }
 
